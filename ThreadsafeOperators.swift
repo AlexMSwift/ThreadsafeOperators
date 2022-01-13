@@ -1,5 +1,3 @@
-// Created by Alex Moore on 10/01/19.
-
 import Foundation
 
 // 32 and 64 bit signed types
@@ -67,10 +65,10 @@ func =!(inout lhs: Int32, rhs: @autoclosure () -> Int32) -> Int32 {
   var newValue: Int32!
   
   do {
-    let original = lhs;
+    let original = lhs
     newValue = rhs()
     success = OSAtomicCompareAndSwap32(original, newValue, &lhs)
-  } while(!success);
+  } while(!success)
   
   return newValue
 }
@@ -80,10 +78,10 @@ func =!(inout lhs: Int64, rhs: @autoclosure () -> Int64) -> Int64 {
   var newValue: Int64!
   
   do {
-    let original = lhs;
+    let original = lhs
     newValue = rhs()
     success = OSAtomicCompareAndSwap64(original, newValue, &lhs)
-  } while(!success);
+  } while(!success)
   
   return newValue
 }
@@ -93,10 +91,10 @@ func =!(inout lhs: Int, rhs: @autoclosure () -> Int) -> Int {
   var newValue: Int!
   
   do {
-    let original = lhs;
+    let original = lhs
     newValue = rhs()
     success = OSAtomicCompareAndSwapLong(original, newValue, &lhs)
-  } while(!success);
+  } while(!success)
   
   return newValue
 }
@@ -108,10 +106,10 @@ func =!(inout lhs: UnsafeMutablePointer<Void>,
   var newValue: UnsafeMutablePointer<Void>!
   
   do {
-    let original = lhs;
+    let original = lhs
     newValue = rhs()
     success = OSAtomicCompareAndSwapPtr(original, newValue, &lhs)
-  } while(!success);
+  } while(!success)
   
   return newValue
 }
